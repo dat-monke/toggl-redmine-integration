@@ -1,5 +1,6 @@
 """ The following environment is selected: ~\OneDrive\Desktop\python_sum\.venv\Scripts\python.exe """
 """ Tanner Bolt Montauk + ASI INFOR || These are pending creation for Project Name in Toggl"""
+
 import tkinter as tk
 from tkinter import ttk, filedialog
 import csv
@@ -7,8 +8,8 @@ import pandas as pd
 import requests
 
 # Redmine API configuration
-# REDMINE_API_URL = "https://redmineb2b.silksoftware.com/"
-# REDMINE_API_KEY = "your-api-key"
+REDMINE_API_URL = "https://redmineb2b.silksoftware.com/"
+REDMINE_API_KEY = "REPLACE WITH YOU API KEY HERE"
 PROJECT_MAP = {
     "CMC Rescue": {"project_id": 3779},  # Replace with actual Redmine project IDs and activity IDs
     "HNR": {"project_id": 3503},
@@ -40,9 +41,16 @@ def open_csv_file():
 def round_up_15min(duration):
     # Convert string duration to a pandas Timedelta object
     duration = pd.to_timedelta(duration)
+    
     # Add 15 minutes minus 1 second, then floor to 15-minute interval
     rounded_duration = (duration + pd.Timedelta(minutes=14, seconds=59)).floor('15T')
-    return str(rounded_duration).split('days')[-1].strip()  # Remove days if present
+    
+    # Convert to total seconds, then convert to hours in decimal (15-minute increments)
+    total_seconds = rounded_duration.total_seconds()
+    decimal_hours = total_seconds / 3600  # 3600 seconds in an hour
+    
+    return round(decimal_hours, 2)  # Round to 2 decimal places
+
 
 def categorize_description(description):
     keywords = {
@@ -77,29 +85,29 @@ def log_time_to_redmine(project_name, hours, description, date, category):
     else:
         activity_id = project_info.get('activity_id', 13)  # Default activity ID if not specified
 
-    # payload = {
-    #     "time_entry": {
-    #         "project_id": project_id,
-    #         "hours": hours,
-    #         "comments": description,
-    #         "spent_on": date,  # Date on which time was spent
-    #         "activity_id": activity_id  # Redmine activity ID based on category
-    #     }
-    # }
+    payload = {
+        "time_entry": {
+            "project_id": project_id,
+            "hours": hours,
+            "comments": description,
+            "spent_on": date,  # Date on which time was spent
+            "activity_id": activity_id  # Redmine activity ID based on category
+        }
+    }
 
-    # headers = {
-    #     "X-Redmine-API-Key": REDMINE_API_KEY,
-    #     "Content-Type": "application/json"
-    # }
+    headers = {
+        "X-Redmine-API-Key": REDMINE_API_KEY,
+        "Content-Type": "application/json"
+    }
 
-    # response = requests.post(f"{REDMINE_API_URL}/time_entries.json", json=payload, headers=headers)
+    response = requests.post(f"{REDMINE_API_URL}/time_entries.json", json=payload, headers=headers)
 
-    # if response.status_code == 201:
-    #     print(f"Time logged successfully for project {project_name}: {hours} hours")
-    #     return True
-    # else:
-    #     print(f"Failed to log time for project {project_name}: {response.status_code} - {response.text}")
-    #     return False
+    if response.status_code == 200:
+        print(f"Time logged successfully for project {project_name}: {hours} hours")
+        return True
+    else:
+        print(f"Failed to log time for project {project_name}: {response.status_code} - {response.text}")
+        return False
 
 
 def display_csv_data(file_path):
