@@ -1,4 +1,3 @@
-""" The following environment is selected: ~\OneDrive\Desktop\python_sum\.venv\Scripts\python.exe """
 """ Tanner Bolt Montauk + ASI INFOR || These are pending creation for Project Name in Toggl"""
 
 import tkinter as tk
