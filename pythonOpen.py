@@ -10,24 +10,8 @@ import requests
 REDMINE_API_URL = "https://redmineb2b.silksoftware.com/"
 REDMINE_API_KEY = "REPLACE WITH YOU API KEY HERE"
 PROJECT_MAP = {
-    "CMC Rescue": {"project_id": 3779},  # Replace with actual Redmine project IDs and activity IDs
-    "HNR": {"project_id": 3503},
-    "Pacific Research Laboratory": {"project_id": 3463},
-    "Infinity Foil": {"project_id": 3829}, 
-    "MISC": {"project_id": 17}, 
-    "Tanner Bolt": {"project_id": 3229},
-    "Tanner Bolt Montauk": {"project_id": 3620},
-    "Vibration Mountings & Controls": {"project_id": 3794},
-    "Wenger": {"project_id": 3479},
-    "American Specialties": {"project_id": 3244},
-    "ASI INFOR": {"project_id": 3523},
-    "Aramsco": {"project_id": 3361},
-    "Canarm": {"project_id": 3357},
-    "P&R Electrical": {"project_id": 3790},
-    "Travis Tile": {"project_id": 3722},
-    "Duncan Supply": {"project_id": 3728}, 
-    "Internal": {"project_id": 17},
-    "SKC": {"project_id": 3752},
+    # Replace with actual Redmine project IDs and activity IDs
+
     # Add other projects as needed
 }
 ACTIVITY_ID = 9  # Default activity ID for logging time
