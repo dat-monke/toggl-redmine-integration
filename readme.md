@@ -12,10 +12,10 @@ Intended Behavior:
 
 
 Steps to use application: 
-1.  Update REDMINE_API_KEY
+1.  Update REDMINE_API_KEY and REDMINE_API_URL
 2.  Update PROJECT_MAP
-2.1 Format for PROJECT_MAP is "{[toggl_project]}": {"project_id": [project_id_from_api]}
-2.2 project_id_from_api is only retreivable via API call. Refer to: https://www.redmine.org/projects/redmine/wiki/Rest_Projects
-3.  Set activity_id if different. Currently Management and Meeting is set, being 13 and 15 respectively. Refer to the API response to set other activity ids. 
-3.  Download Toggl timelog entry in Detailed View 
-4.  Execute the script
+   3. Format for PROJECT_MAP is "{[toggl_project]}": {"project_id": [project_id_from_api]}
+   4. project_id_from_api is only retreivable via API call. Refer to: https://www.redmine.org/projects/redmine/wiki/Rest_Projects
+5.  Set activity_id if different. Currently Management and Meeting is set, being 13 and 15 respectively. Refer to the API response to set other activity ids. 
+6.  Download Toggl timelog entry in Detailed View 
+7.  Execute the script
