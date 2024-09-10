@@ -1,5 +1,3 @@
-""" Tanner Bolt Montauk + ASI INFOR || These are pending creation for Project Name in Toggl"""
-
 import tkinter as tk
 from tkinter import ttk, filedialog
 import csv
