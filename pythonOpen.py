@@ -5,8 +5,8 @@ import pandas as pd
 import requests
 
 # Redmine API configuration
-REDMINE_API_URL = "https://redminex.silksoftware.com/"
-REDMINE_API_KEY = "08665dbafc1b29d478e3899420cb99ca75a5425d"
+REDMINE_API_URL = "x"
+REDMINE_API_KEY = "x"
 
 PROJECT_MAP = {
     # Replace with actual Redmine project IDs and activity IDs
@@ -16,8 +16,8 @@ PROJECT_MAP = {
     # Add other projects as needed
 }
 
-# REDMINE_API_URL = "https://redmine2.silksoftware.com/"
-# REDMINE_API_KEY = "08665dbafc1b29d478e3899420cb99ca75a5425d"
+# REDMINE_API_URL = "x"
+# REDMINE_API_KEY = "x"
 
 # PROJECT_MAP = {
 #     # Replace with actual Redmine project IDs and activity IDs
