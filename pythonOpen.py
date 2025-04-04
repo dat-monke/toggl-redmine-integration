@@ -5,13 +5,28 @@ import pandas as pd
 import requests
 
 # Redmine API configuration
-REDMINE_API_URL = "https://redmineb2b.silksoftware.com/"
-REDMINE_API_KEY = "REPLACE WITH YOU API KEY HERE"
+REDMINE_API_URL = "https://redminex.silksoftware.com/"
+REDMINE_API_KEY = "08665dbafc1b29d478e3899420cb99ca75a5425d"
+
 PROJECT_MAP = {
     # Replace with actual Redmine project IDs and activity IDs
-
+    "Westone": {"project_id":1811}, # Parent is: (MS: Westone Laboratories (SMS))
+    "MISC": {"project_id": 1218}, # Parent is: (SILK: Internal)
+    "Internal": {"project_id": 1218}, # This is mapped to: (SILK: Internal)
     # Add other projects as needed
 }
+
+# REDMINE_API_URL = "https://redmine2.silksoftware.com/"
+# REDMINE_API_KEY = "08665dbafc1b29d478e3899420cb99ca75a5425d"
+
+# PROJECT_MAP = {
+#     # Replace with actual Redmine project IDs and activity IDs
+#     "Implementation": {"project_id":1697}, # This is mapped to: (System Integration)
+#     "Westone - MSA": {"project_id":1697}, # This is mapped to: (Systems Integation)
+#     # There are technically two sections that have tickets (System Integration and Platform Development), the projectID for PD is 1696
+#     # Add other projects as needed
+# }
+
 ACTIVITY_ID = 9  # Default activity ID for logging time
 
 def open_csv_file():
